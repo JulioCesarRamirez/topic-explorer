@@ -4,7 +4,7 @@ interface TopicResponse {
     topic: Topic
 }
 
-const getTopicQuery = gql`
+export const getTopicQuery = gql`
 query getTopic ($topicToSearch: String!){
     topic(name: $topicToSearch) {
         name

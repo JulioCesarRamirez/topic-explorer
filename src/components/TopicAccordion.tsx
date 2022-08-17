@@ -16,14 +16,13 @@ export const TopicAccordion = ({ topicData }: Porps) => {
     <Accordion>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
-        id="panel1a-header"
+        aria-label="accordion-title"
       >
         <Typography>Related topic - {capitalize(topicData.name)}</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Typography variant="h5">
-          Total of stargazers {topicData.stargazers.totalCount}
+          Total of stargazers {topicData.stargazers.totalCount.toLocaleString()}
         </Typography>
       </AccordionDetails>
     </Accordion>

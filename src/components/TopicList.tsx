@@ -7,15 +7,15 @@ import { RelatedTopics, usePostsQuery } from "../api/getTopics";
 import { TopicAccordion } from "./TopicAccordion";
 import { TopicSearcher } from "./TopicSearcher";
 import { capitalize } from "../helpers/capitalize";
-import { BoxWrapper } from "./styled";
+import { BoxWrapper, ListWrapper } from "./styled";
 
 export const TopicList = () => {
   const [topicToExplore, setTopicToExplore] = useState("react");
   const { topic, loading } = usePostsQuery(topicToExplore);
 
   return (
-    <>
-      <Typography variant="h4">
+    <ListWrapper>
+      <Typography variant="h4" mb={2}>
         Current topic {capitalize(topicToExplore)}
       </Typography>
       <TopicSearcher setTopic={setTopicToExplore} />
@@ -30,6 +30,6 @@ export const TopicList = () => {
           <ErrorIcon />
         )}
       </BoxWrapper>
-    </>
+    </ListWrapper>
   );
 };
