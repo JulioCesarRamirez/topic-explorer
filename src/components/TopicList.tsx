@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import LinearProgress from "@mui/material/LinearProgress";
-import ErrorIcon from "@mui/icons-material/Error";
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 import Typography from "@mui/material/Typography";
 
 import { RelatedTopics, usePostsQuery } from "../api/getTopics";
@@ -11,7 +12,7 @@ import { BoxWrapper, ListWrapper } from "./styled";
 
 export const TopicList = () => {
   const [topicToExplore, setTopicToExplore] = useState("react");
-  const { topic, loading } = usePostsQuery(topicToExplore);
+  const { topic, loading, error } = usePostsQuery(topicToExplore);
 
   return (
     <ListWrapper>
@@ -22,12 +23,17 @@ export const TopicList = () => {
       <BoxWrapper>
         {loading ? (
           <LinearProgress color="success" />
-        ) : topic ? (
-          topic.relatedTopics.map((topicRelated: RelatedTopics) => (
-            <TopicAccordion key={topicRelated.id} topicData={topicRelated} />
-          ))
+        ) : !error ? (
+          topic && topic.relatedTopics.length ? topic.relatedTopics.map((topicRelated: RelatedTopics) => (
+            <TopicAccordion key={topicRelated.id} topicData={topicRelated} setTopic={setTopicToExplore} />
+          )) : (
+            <Alert severity="warning">
+              <AlertTitle>{capitalize(topicToExplore)}</AlertTitle>
+              Has no related topics
+            </Alert>
+          )
         ) : (
-          <ErrorIcon />
+          <Alert severity="error">Ups! something went wrong</Alert>
         )}
       </BoxWrapper>
     </ListWrapper>

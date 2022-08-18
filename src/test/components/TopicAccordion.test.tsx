@@ -13,7 +13,7 @@ const props = {
 } as RelatedTopics;
 
 const setup = () => {
-  const utils = render(<TopicAccordion topicData={props} />);
+  const utils = render(<TopicAccordion setTopic={() => { }} topicData={props} />);
   const title = utils.getByLabelText("accordion-title");
   const label = utils.getByText(`Related topic - ${capitalize(props.name)}`);
   const hiddenLabel = utils.getByText(

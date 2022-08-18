@@ -4,14 +4,22 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Button from '@mui/material/Button';
+
 import { RelatedTopics } from "../api/getTopics";
 import { capitalize } from "../helpers/capitalize";
 
-interface Porps {
+interface Props {
   topicData: RelatedTopics;
+  setTopic: (value: string) => void;
 }
 
-export const TopicAccordion = ({ topicData }: Porps) => {
+export const TopicAccordion = ({ topicData, setTopic }: Props) => {
+
+  const handleClick = () => {
+    setTopic(topicData.name)
+  }
+
   return (
     <Accordion>
       <AccordionSummary
@@ -21,9 +29,10 @@ export const TopicAccordion = ({ topicData }: Porps) => {
         <Typography>Related topic - {capitalize(topicData.name)}</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography variant="h5">
+        <Typography mb={2} variant="h5">
           Total of stargazers {topicData.stargazers.totalCount.toLocaleString()}
         </Typography>
+        <Button onClick={handleClick} variant="outlined">See related topics of {topicData.name}</Button>
       </AccordionDetails>
     </Accordion>
   );

@@ -7,6 +7,9 @@ const httpLink = createHttpLink({
 
 const authLink = setContext((_, { headers }) => {
   const token = process.env.REACT_APP_GITHUB_TOKEN;
+  if (!token) {
+    console.error('Token not found');
+  }
   return {
     headers: {
       ...headers,
