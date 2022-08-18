@@ -9,15 +9,15 @@ Node Version 16x you can download it in this [link](https://nodejs.org), or you 
 
 ### `nvm use` 
 
-After intalled node you can run the following to isntall all the dependencies needed
+After installing node you can run the following to install all the dependencies needed
 
 ### `npm ci`
 
 ## Token generation
 
-This app needs a github token like [this one](https://docs.github.com/en/graphql/guides/forming-calls-with-graphql).
+This app needs a GitHub token like [this one](https://docs.github.com/en/graphql/guides/forming-calls-with-graphql).
 
-After generating your token, you will create a `.env` file at root level that contains
+After generating your token, you will create a `.env` file at the root level that contains
 
 ```
 REACT_APP_GRAPHQL_API_URL=https://api.github.com/graphql
