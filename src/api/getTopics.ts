@@ -4,7 +4,7 @@ interface TopicResponse {
     topic: Topic
 }
 
-const getTopicQuery = gql`
+export const getTopicQuery = gql`
 query getTopic ($topicToSearch: String!){
     topic(name: $topicToSearch) {
         name
@@ -37,14 +37,14 @@ export interface Topic {
 export const usePostsQuery = (customTopic: string) => {
     const [loading, setLoading] = useState(false);
     const topicToSearch = customTopic.toLowerCase();
-    
+
     const queryOptions = useMemo(() => ({ variables: { topicToSearch } }), [topicToSearch]);
-    const dataResponse = useQuery<TopicResponse>(getTopicQuery, queryOptions);
-    const topic = dataResponse.data?.topic
+    const { data: dataResponse, error } = useQuery<TopicResponse>(getTopicQuery, queryOptions);
+    const topic = dataResponse?.topic
 
     useEffect(() => {
-        setLoading(!topic);
+        setLoading(!topic)
     }, [topic]);
 
-    return { topic, loading }
+    return { topic, loading, error }
 }
