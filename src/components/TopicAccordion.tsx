@@ -32,7 +32,7 @@ export const TopicAccordion = ({ topicData, setTopic }: Props) => {
         <Typography mb={2} variant="h5">
           Total of stargazers {topicData.stargazers.totalCount.toLocaleString()}
         </Typography>
-        <Button onClick={handleClick} variant="outlined">See related topics of {topicData.name}</Button>
+        <Button onClick={handleClick} variant="outlined">See the related topic to {topicData.name}</Button>
       </AccordionDetails>
     </Accordion>
   );
