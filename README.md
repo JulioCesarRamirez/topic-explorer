@@ -33,3 +33,7 @@ To start the app you will run:
 To see de unit tests, run the following:
 
 ### `npm run test`
+
+## Runing app
+Consider this is a gif so it moves faster 
+![topic-explorer](https://user-images.githubusercontent.com/22249282/185492115-2df48072-758a-442c-b034-95e21d13c1fb.gif)
