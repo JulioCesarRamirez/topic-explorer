@@ -30,7 +30,7 @@ To start the app you will run:
 ### `npm run start`
 
 ## Testing app
-To see de unit tests, run the following:
+To see the unit tests, run the following:
 
 ### `npm run test`
 
