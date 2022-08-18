@@ -17,7 +17,7 @@ After intalled node you can run the following to isntall all the dependencies ne
 
 This app needs a github token like [this one](https://docs.github.com/en/graphql/guides/forming-calls-with-graphql).
 
-After generate your token, you will create a `.env` file at root level who contains 
+After generating your token, you will create a `.env` file at root level that contains
 
 ```
 REACT_APP_GRAPHQL_API_URL=https://api.github.com/graphql
