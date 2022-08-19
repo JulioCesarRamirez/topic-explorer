@@ -33,3 +33,9 @@ To start the app you will run:
 To see the unit tests, run the following:
 
 ### `npm run test`
+
+## Future enhancements 
+
+1. Refactor API call to call it just once. 
+2. Add an observable to avoid the submit in the search input. 
+3. Add some styled-components to have a better design.
