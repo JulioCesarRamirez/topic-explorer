@@ -11,7 +11,7 @@ import { capitalize } from "../helpers/capitalize";
 
 interface Props {
   topicData: RelatedTopics;
-  setTopic: (value: string) => void;
+  setTopic: (name: string) => void;
 }
 
 export const TopicAccordion = ({ topicData, setTopic }: Props) => {
